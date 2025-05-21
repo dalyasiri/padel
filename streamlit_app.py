@@ -10,13 +10,13 @@ st.title("🎾 Padel Team Dashboard")
 
 # --- Snowflake Connection ---
 conn = snowflake.connector.connect(
-    user=os.getenv("SNOWFLAKE_USER"),
-    password=os.getenv("SNOWFLAKE_PASSWORD"),
-    account=os.getenv("SNOWFLgitAKE_ACCOUNT"),
-    warehouse=os.getenv("SNOWFLAKE_WAREHOUSE"),
-    database=os.getenv("SNOWFLAKE_DATABASE"),
-    schema=os.getenv("SNOWFLAKE_SCHEMA"),
-    role=os.getenv("SNOWFLAKE_ROLE")
+    user=os.getenv("USER"),
+    password=os.getenv("PASSWORD"),
+    account=os.getenv("ACCOUNT"),
+    warehouse=os.getenv("WAREHOUSE"),
+    database=os.getenv("DATABASE"),
+    schema=os.getenv("SCHEMA"),
+    role=os.getenv("ROLE")
 )
 
 # --- Helper: run query + return DataFrame ---
