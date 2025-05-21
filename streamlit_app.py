@@ -111,6 +111,27 @@ with col2:
             st.success(f"✅ Player '{new_player.strip()}' added!")
         else:
             st.warning("Please enter a valid name.")
+    
+    st.subheader("📅 Recent Games")
+
+    recent_games_df = query_df("""
+        SELECT 
+            pg.GAME_DATE,
+            pg.LOCATION,
+            pg.TEAM1_SCORE,
+            pg.TEAM2_SCORE,
+            LISTAGG(CASE WHEN gp.TEAM_NUMBER = 1 THEN p.PLAYER_NAME END, ', ') AS TEAM1_PLAYERS,
+            LISTAGG(CASE WHEN gp.TEAM_NUMBER = 2 THEN p.PLAYER_NAME END, ', ') AS TEAM2_PLAYERS
+        FROM MATCHES.PADEL_GAMES pg
+        JOIN MATCHES.GAME_PARTICIPANTS gp ON pg.GAME_ID = gp.GAME_ID
+        JOIN MATCHES.PLAYERS p ON gp.PLAYER_ID = p.PLAYER_ID
+        GROUP BY pg.GAME_DATE, pg.LOCATION, pg.TEAM1_SCORE, pg.TEAM2_SCORE
+        ORDER BY pg.GAME_DATE DESC
+        LIMIT 5
+    """)
+
+    recent_games_df.index += 1
+    st.dataframe(recent_games_df, use_container_width=True)
 
 # --- Head-to-Head Heatmap ---
 st.subheader("🤼 Head-to-Head Win Heatmap")
