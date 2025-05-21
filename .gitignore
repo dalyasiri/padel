@@ -5,3 +5,4 @@ streamlit_app_backup.py
 pandel.sql
 .localized
 PTE\ SQL/ 
+.streamlit/

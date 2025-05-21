@@ -3,6 +3,22 @@ import pandas as pd
 import altair as alt
 from snowflake.snowpark.context import get_active_session
 
+<<<<<<< HEAD
+=======
+import os
+import snowflake.connector
+
+conn = snowflake.connector.connect(
+    user=os.getenv("USER"),
+    password=os.getenv("PASSWORD"),
+    account=os.getenv("ACCOUNT"),
+    warehouse=os.getenv("WAREHOUSE"),
+    database=os.getenv("DATABASE"),
+    schema=os.getenv("SCHEMA"),
+    role=os.getenv("ROLE")
+)
+
+>>>>>>> b9d6775 (add connection set-up to host on stream cloud)
 session = get_active_session()
 st.set_page_config(layout="wide")
 
