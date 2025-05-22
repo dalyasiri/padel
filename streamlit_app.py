@@ -82,7 +82,7 @@ with col1:
         # score2 = st.number_input("Team 2 Score", min_value=0, max_value=6, value=4)
         score1 = st.number_input("Team 1 Score", min_value=0, max_value=6, step=1, value=0, format="%d")
         score2 = st.number_input("Team 2 Score", min_value=0, max_value=6, step=1, value=0, format="%d")
-
+        
         location = st.text_input("Location", "Dubai Hills")
         match_date = st.date_input("Match Date")
 
@@ -92,6 +92,8 @@ with col1:
             selected_players = [p1, p2, p3, p4]
             if len(set(selected_players)) < 4:
                 st.warning("⚠️ A player cannot be selected in multiple positions.")
+            elif score1 > 6 or score2 > 6:
+                st.warning("⚠️ Scores must not exceed 6.")
             else:
                 conn.cursor().execute(f"""
                     INSERT INTO MATCHES.PADEL_GAMES (GAME_DATE, LOCATION, TEAM1_SCORE, TEAM2_SCORE)
