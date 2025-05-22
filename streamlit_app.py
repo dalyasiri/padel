@@ -7,7 +7,7 @@ import snowflake.connector
 # Streamlit config
 st.set_page_config(layout="wide")
 st.markdown(
-    "<h1 style='text-align: center;'>🎾 Padel Team Dashboard ❄️</h1>",
+    "<h1 style='text-align: center;'>🎾 Snowflake META Team Padel Dashboard ❄️</h1>",
     unsafe_allow_html=True
 )
 # --- Snowflake Connection ---
