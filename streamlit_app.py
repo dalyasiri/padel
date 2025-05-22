@@ -78,8 +78,11 @@ with col1:
             p3 = st.selectbox("Team 2 - Player 1", player_names, key="p3")
             p4 = st.selectbox("Team 2 - Player 2", player_names, key="p4")
 
-        score1 = st.number_input("Team 1 Score", min_value=0, max_value=6, value=6)
-        score2 = st.number_input("Team 2 Score", min_value=0, max_value=6, value=4)
+        # score1 = st.number_input("Team 1 Score", min_value=0, max_value=6, value=6)
+        # score2 = st.number_input("Team 2 Score", min_value=0, max_value=6, value=4)
+        score1 = st.number_input("Team 1 Score", min_value=0, max_value=6, step=1, value=0, format="%d")
+        score2 = st.number_input("Team 2 Score", min_value=0, max_value=6, step=1, value=0, format="%d")
+
         location = st.text_input("Location", "Dubai Hills")
         match_date = st.date_input("Match Date")
 
