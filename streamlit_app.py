@@ -7,7 +7,7 @@ import snowflake.connector
 # Streamlit config
 st.set_page_config(layout="wide")
 st.markdown(
-    "<h1 style='text-align: center;'>❄️ Snowflake META Team Padel Champions! 🎾</h1>",
+    "<h1 style='text-align: center;'>❄️ Snowflake META Team - Padel Champions! 🎾</h1>",
     unsafe_allow_html=True
 )
 # --- Snowflake Connection ---
@@ -19,7 +19,7 @@ conn = snowflake.connector.connect(
     database=os.getenv("DATABASE"),
     schema=os.getenv("SCHEMA"),
     role=os.getenv("ROLE")
-)
+) 
 
 # --- Helper: run query + return DataFrame ---
 def query_df(sql: str):
